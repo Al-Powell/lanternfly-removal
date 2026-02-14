@@ -1,5 +1,7 @@
 "use client";
-import React, {useState} from "react";
+import React, { useState } from "react";
+import Button from '@mui/joy/Button';
+import Input from '@mui/joy/Input';
 export default function Home() {
   const [toggle, setToggle] = useState(-1);
   function getUserLocation(){
@@ -11,16 +13,16 @@ export default function Home() {
   }
   return (
     <>
-     <button onClick={() => setToggle((toggle) => toggle * -1)}>
+     <Button onClick={() => setToggle((toggle) => toggle * -1)}>
           <h1>Create New Group</h1>
-        </button>
+        </Button>
       { toggle === 1&& (
-        <div>
+        <div style={{display: "flex", flexDirection: "column", gap: "10px"}}>
           <label>Location:
-           <input name = "Enter Location"></input>
-           <button onClick={() => setToggle((toggle) => toggle * -1)}>Use Current Location</button>
+           <Input name = "Enter Location"></Input>
+           <Button variant="solid" onClick={() => setToggle((toggle) => toggle * -1)}>Use Current Location</Button>
            </label>
-           <input name = "How many people do you need?"/>
+           <Input name = "How many people do you need?"/>
            <label>
            </label>
         </div>
