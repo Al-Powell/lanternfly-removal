@@ -1,7 +1,8 @@
 "use client";
 import React, {useState} from "react";
 export default function Home() {
-  const [toggle, setToggle] = useState(-1);
+  const [toggleCreate, setCreateToggle] = useState(-1);
+  const [toggleInfo, setInfoToggle] = useState(-1);
   function getUserLocation(){
     //TODO
     return(
@@ -11,17 +12,28 @@ export default function Home() {
   }
   return (
     <>
-     <button onClick={() => setToggle((toggle) => toggle * -1)}>
+    <button onClick={() => setInfoToggle((toggleInfo) => toggleInfo * -1)}>
+      <image></image>
+    </button>
+     <button onClick={() => setCreateToggle((toggleCreate) => toggleCreate * -1)}>
           <h1>Create New Group</h1>
         </button>
-      { toggle === 1&& (
+      { toggleCreate === 1&& (
         <div>
           <label>Location:
            <input name = "Enter Location"></input>
-           <button onClick={() => setToggle((toggle) => toggle * -1)}>Use Current Location</button>
+           <button onClick={() => getUserLocation()}>Use Current Location</button>
            </label>
-           <input name = "How many people do you need?"/>
            <label>
+              How many people do you need?
+              <input name = "Enter a number"></input>
+           </label>
+           <label>
+              What will you be doing?
+              <select name = "Select a goal">
+                <option value="Litter Cleanup">Litter Cleanup</option>
+                <option value="Lanternfly Egg Removal">Spotted Lanternfly Egg Removal</option>
+              </select>
            </label>
         </div>
         )
